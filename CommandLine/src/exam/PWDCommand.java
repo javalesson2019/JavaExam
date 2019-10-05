@@ -17,16 +17,21 @@ class PWDCommand implements Command {
 
 	@Override
 	public boolean execute(Context context, String... args) {
-		try {
-			Path currentRelativePath = Paths.get("");
-			String s = currentRelativePath.toAbsolutePath().toString();
-			System.out.println(s);
-		} catch (Error e) {
-			System.err.println("Default directory is not an absolute path\n");
-		}
+		System.out.println(doPWD());
 		return true;
 	}
 
+	public String doPWD() {
+		String s = "";
+		try {
+			Path currentRelativePath = Paths.get("");
+			System.out.println(System.getProperty("user.dir"));
+		} catch (Error e) {
+			s= "Default directory is not an absolute path\n";
+		}
+		
+		return s;
+	}
 	@Override
 	public String getName() {
 		return "PWD";
