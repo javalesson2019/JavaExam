@@ -16,7 +16,7 @@ class DirCommand implements Command {
 
 	@Override
 	public boolean execute(Context context, String... args) {
-		printDir(context.currentDirectory);
+		printDir(context.getCurrentDirectory());
 		return true;
 	}
 
@@ -25,13 +25,14 @@ class DirCommand implements Command {
 		return "DIR";
 	}
 
-	private void printDir(File dir) {
-		File[] files = dir.listFiles();
-		if (files != null) {
-			for (File f : files) {
-				System.out.println(f.getName());
-			}
-		}
+	
+		private void printDir(File dir) {
+			  File[] files = dir.listFiles();
+	           if (files != null) {
+	               for (File f : files) {
+	                   System.out.println(f.getName());
+	               }
+	           }
 	}
 
 	@Override

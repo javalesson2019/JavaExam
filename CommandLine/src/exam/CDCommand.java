@@ -16,7 +16,7 @@ class CDCommand implements Command {
 
 	@Override
 	public boolean execute(Context context, String... args) {
-		doCD(context.currentDirectory, args);
+			doCD(context, args);
 		return true;
 	}
 
@@ -25,20 +25,15 @@ class CDCommand implements Command {
 		return "CD";
 	}
 
-	private void doCD(File dir, String[] args) {
+	private void doCD(Context dir, String[] args) {
 		if (args == null) {
 			System.out.println("enter: cd + <name of the new directory>");
 		} else {
-			String change = args[0];
-			System.out.println("Current working directory:");
-			System.out.println(System.getProperty("user.dir"));
 
+			File name = new File(args[0]);
+			dir.setCurrentDirectory(name);
 			System.out.println("Changing working directory...\n");
-			System.setProperty("user.dir", change);
-
-			System.out.println("Current working directory:");
-			System.out.println(System.getProperty("user.dir"));
-
+			
 		}
 	}
 

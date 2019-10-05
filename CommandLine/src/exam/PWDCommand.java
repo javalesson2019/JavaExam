@@ -2,8 +2,7 @@
 
 package exam;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.File;
 
 import exam.CommandLine.Command;
 import exam.CommandLine.Context;
@@ -17,17 +16,16 @@ class PWDCommand implements Command {
 
 	@Override
 	public boolean execute(Context context, String... args) {
-		System.out.println(doPWD());
+		System.out.println(doPWD(context.getCurrentDirectory()));
 		return true;
 	}
 
-	public String doPWD() {
+	public String doPWD(File dir) {
 		String s = "";
 		try {
-			Path currentRelativePath = Paths.get("");
-			System.out.println(System.getProperty("user.dir"));
+			System.out.println(dir.getAbsolutePath().toString());	
 		} catch (Error e) {
-			s= "Default directory is not an absolute path\n";
+			s = "Default directory is not an absolute path\n";
 		}
 		
 		return s;

@@ -2,11 +2,8 @@
 
 package exam;
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
@@ -22,7 +19,9 @@ public class DownloadCommand implements Command {
 
 	@Override
 	public boolean execute(Context context, String... args) {
-		download(context.currentDirectory, args);
+	
+		download(context.getCurrentDirectory(), args);
+		
 		return true;
 	}
 

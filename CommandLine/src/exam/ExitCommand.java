@@ -6,6 +6,7 @@ import exam.CommandLine.Context;
 class ExitCommand implements Command {
 	@Override
 	public boolean execute(Context context, String... args) {
+	
 		System.out.println("Finishing command processor... done.");
 		return false;
 	}

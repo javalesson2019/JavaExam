@@ -32,6 +32,7 @@ public class CommandLine {
 	public void execute() {
 		Context c = new Context();
 		c.currentDirectory = new File(".").getAbsoluteFile();
+		
 		boolean result = true;
 		Scanner scanner = new Scanner(System.in, consoleEncoding);
 		do {
@@ -77,7 +78,7 @@ public class CommandLine {
 	interface Command {
 
 		boolean execute(Context context, String... args);
-
+		
 		void printHelp();
 
 		String getName();
@@ -86,9 +87,16 @@ public class CommandLine {
 	}
 
 	class Context {
+		private File currentDirectory;
 
-		File currentDirectory;
+		public File getCurrentDirectory() {
+			return currentDirectory;
+		}
 
+		public void setCurrentDirectory(File currentDirectory) {
+			this.currentDirectory = currentDirectory;
+		}
+		
 	}
 
 	class HelpCommand implements Command {
