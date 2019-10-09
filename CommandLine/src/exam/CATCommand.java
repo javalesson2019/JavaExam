@@ -12,6 +12,7 @@ import java.util.Scanner;
 import exam.CommandLine.Command;
 import exam.CommandLine.Context;
 
+// TODO: Зачем дублировать суффикс Command? Имя класса не соответсвует правилами кодирования
 class CATCommand implements Command {
 
 	@Override

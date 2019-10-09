@@ -44,7 +44,7 @@ public class DownloadCommand implements Command {
 				URL website;
 				try {
 					website = new URL(url);
-					ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+					ReadableByteChannel rbc = Channels.newChannel(website.openStream()); // TODO: мы не работали с каналами. Я показывал другой способ
 					FileOutputStream fos = new FileOutputStream(fileName);
 					fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
 					System.out.println(fileName + " was succesfully downloaded");

@@ -8,8 +8,9 @@ import java.util.TreeMap;
 public class CommandLine {
 	Map<String, Command> commands;
 
-	String consoleEncoding;
+	String consoleEncoding; // TODO: инкапуляция не реализована
 
+	// TODO: где-то я уже это видел: http://www.cyberforum.ru/java-j2se/thread705762.html
 	public CommandLine(String consoleEncoding) {
 		commands = new TreeMap<>();
 		Command cmd = new HelpCommand();
@@ -57,7 +58,7 @@ public class CommandLine {
 		cp.execute();
 	}
 
-	class ParsedCommand {
+	class ParsedCommand { // TODO: мб он должен быть влженным?
 
 		String command;
 
@@ -65,7 +66,7 @@ public class CommandLine {
 
 		public ParsedCommand(String line) {
 			String parts[] = line.split(" ");
-			if (parts != null) {
+			if (parts != null) { // TODO: это выражение всегда true
 				command = parts[0];
 				if (parts.length > 1) {
 					args = new String[parts.length - 1];
@@ -75,7 +76,7 @@ public class CommandLine {
 		}
 	}
 
-	interface Command {
+	interface Command { // TODO: Почему этот интерфейс не в отдельном файле и не публичный? и вложенный?
 
 		boolean execute(Context context, String... args);
 		
@@ -86,7 +87,7 @@ public class CommandLine {
 		String getDescription();
 	}
 
-	class Context {
+	class Context {// TODO: Почему этот класс не в отдельном файле и не публичный? и вложенный?
 		private File currentDirectory;
 
 		public File getCurrentDirectory() {

@@ -25,12 +25,12 @@ class DirCommand implements Command {
 		return "DIR";
 	}
 
-	
+	// TODO: код написан небрежно! Где форматирование?
 		private void printDir(File dir) {
 			  File[] files = dir.listFiles();
 	           if (files != null) {
 	               for (File f : files) {
-	                   System.out.println(f.getName());
+	                   System.out.println(f.getName()); // TODO: где файл, а где папка?
 	               }
 	           }
 	}
